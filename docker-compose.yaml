@@ -1,0 +1,9 @@
+version: '3.5'
+
+services:
+  app:
+    build: .docker/php
+    working_dir: /app
+    volumes:
+      - .:/app
+    # entrypoint: 'tail -f /dev/null'

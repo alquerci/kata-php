@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
+  beStrictAboutChangesToGlobalState="true"
+  beStrictAboutOutputDuringTests="true"
+  beStrictAboutTestsThatDoNotTestAnything="true"
+  bootstrap="vendor/autoload.php"
+  cacheDirectory="var/cache/phpunit"
+  colors="true"
+  defaultTestSuite="unit"
+  defaultTimeLimit="1"
+  displayDetailsOnIncompleteTests="false"
+  displayDetailsOnSkippedTests="false"
+  displayDetailsOnTestsThatTriggerDeprecations="false"
+  displayDetailsOnTestsThatTriggerErrors="true"
+  displayDetailsOnTestsThatTriggerNotices="true"
+  displayDetailsOnTestsThatTriggerWarnings="true"
+  enforceTimeLimit="true"
+  executionOrder="depends,defects"
+  failOnEmptyTestSuite="true"
+  failOnIncomplete="false"
+  failOnRisky="true"
+  failOnSkipped="false"
+  failOnWarning="true"
+  stopOnError="false"
+  stopOnFailure="false"
+  stopOnIncomplete="false"
+  stopOnRisky="false"
+  stopOnWarning="false"
+>
+  <testsuites>
+    <testsuite name="unit">
+      <directory>src/Tests</directory>
+    </testsuite>
+  </testsuites>
+
+  <coverage pathCoverage="true">
+    <include>
+      <directory suffix=".php">src</directory>
+    </include>
+    <exclude>
+      <directory>src/Tests</directory>
+    </exclude>
+  </coverage>
+
+  <php>
+    <ini name="error_reporting" value="-1" />
+    <ini name="memory_limit" value="-1" />
+  </php>
+</phpunit>

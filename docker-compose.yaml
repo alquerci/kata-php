@@ -6,4 +6,6 @@ services:
     working_dir: /app
     volumes:
       - .:/app
+    environment:
+      COMPOSER_HOME: /app/var/cache/composer
     # entrypoint: 'tail -f /dev/null'

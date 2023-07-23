@@ -16,7 +16,6 @@
         ]
     },
     "minimum-stability": "stable",
-    "require": {},
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,

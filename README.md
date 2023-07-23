@@ -22,6 +22,15 @@ bin/test-coverage
 
 Code Coverage report [var/tests/coverage/index.html](var/tests/coverage/index.html)
 
+Mutation Testing
+----------------
+
+```
+bin/test-mutation
+```
+
+Mutation report [var/tests/mutation/infection.log](var/tests/mutation/infection.log)
+
 
 Install package
 ---------------

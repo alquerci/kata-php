@@ -46,7 +46,7 @@ RUN set -xe; \
     apk del $buildDeps; \
     :
 
-# Install phpunit and xdebug is installed above.
+# Install phpunit with xdebug is installed above.
 #
 RUN set -ex; \
     prefix=/usr/local; \
@@ -73,6 +73,20 @@ RUN set -ex; \
         echo 'php $enableXdebug /app/vendor/bin/phpunit ''"$@"'; \
     } | tee $prefix/bin/phpunit; \
     chmod +x $prefix/bin/phpunit; \
+    :;
+
+# Install infection with xdebug is installed above.
+#
+RUN set -ex; \
+    prefix=/usr/local; \
+    { \
+        echo '#!/bin/sh'; \
+        echo ''; \
+        echo 'enableXdebug="-dzend_extension=xdebug.so -dxdebug.mode=coverage"'; \
+        echo ''; \
+        echo '/app/vendor/bin/infection --initial-tests-php-options="${enableXdebug}"' '"$@"'; \
+    } | tee $prefix/bin/infection; \
+    chmod +x $prefix/bin/infection; \
     :;
 
 RUN docker-php-ext-install -j`nproc` pcntl

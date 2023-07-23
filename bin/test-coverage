@@ -1,5 +1,5 @@
 #! /bin/sh -eu
 
 docker-compose build > /dev/null
-docker-compose run --rm -u `id -u`:`id -g` app phpunit --coverage-html .coverage
+docker-compose run --rm -u `id -u`:`id -g` app phpunit --coverage-html var/tests/coverage
 docker-compose down

@@ -4,6 +4,7 @@
   beStrictAboutChangesToGlobalState="true"
   beStrictAboutOutputDuringTests="true"
   beStrictAboutTestsThatDoNotTestAnything="true"
+  beStrictAboutTodoAnnotatedTests="true"
   bootstrap="vendor/autoload.php"
   cacheDirectory="var/cache/phpunit"
   colors="true"

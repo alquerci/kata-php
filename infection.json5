@@ -10,7 +10,8 @@
         ]
     },
     "logs": {
-        "text": "var/tests/mutation/infection.log"
+        "text": "var/tests/mutation/infection.txt",
+        "html": "var/tests/mutation/infection.html"
     },
     "mutators": {
         "@default": true

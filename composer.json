@@ -4,7 +4,7 @@
     "keywords": ["kata"],
     "type": "project",
     "require-dev": {
-        "infection/infection": "^0.27.0",
+        "infection/infection": "0.27.*",
         "phpunit/phpunit": "10.0.*"
     },
     "license": "MIT",

@@ -16,12 +16,8 @@
             "**/Tests/"
         ]
     },
-    "minimum-stability": "stable",
     "config": {
-        "preferred-install": "dist",
         "sort-packages": true,
-        "optimize-autoloader": false,
-        "classmap-authoritative": false,
         "platform": {
             "php": "8.2.4"
         },

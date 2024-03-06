@@ -6,18 +6,12 @@ medir=`dirname "$me"`
 displayHelpMessage () {
     cat >&2 <<EOF
 
-$0 <package_name> <ClassName>
+$0 <package_name>
 
 EOF
 }
 
 ${1+:} false || {
-    displayHelpMessage
-
-    exit 2
-}
-
-${2+:} false || {
     displayHelpMessage
 
     exit 2
@@ -35,8 +29,30 @@ pkgmanagerlockfile=composer.lock
 GIT=git
 SED=sed
 
-pkgname=$1
-classname=$2
+main ()
+{
+    pkgname=$1
+    classname=`formatToUpperCamelCase "${pkgname}"`
+
+    createNewBranch
+
+    configurePackageName
+    configureClassName
+
+    removeSkeletonArtefact
+    commit
+
+    echo
+    echo "Open ${testsdir}/${classname}.${codefileext}"
+    echo
+    echo "And start coding"
+    echo
+}
+
+formatToUpperCamelCase ()
+{
+    echo "${1}" | tr '_' ' ' | sed -e 's,\b.,\U&,g' -e 's, ,,g'
+}
 
 createNewBranch ()
 {
@@ -102,16 +118,4 @@ checkWorkingTree()
     }
 }
 
-createNewBranch
-
-configurePackageName
-configureClassName
-
-removeSkeletonArtefact
-commit
-
-echo
-echo "Open ${testsdir}/${classname}.${codefileext}"
-echo
-echo "And start coding"
-echo
+main ${1+"$@"}
